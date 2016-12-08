@@ -15,5 +15,5 @@ class ChinapulpSpiderItem(Item):
     index = Field()
     change_ratio = Field()
     date = Field()
-
+    pic = Field() # 获取图片url
 

@@ -26,12 +26,14 @@ class Pulp(CrawlSpider):
             index = each_row.xpath('td[2]/text()').extract()
             change_ratio = each_row.xpath('td[3]/text()').extract()
             date = each_row.xpath('td[4]/text()').extract()
+            pic = each_row.xpath('td[3]/img/@src').extract()
 
             item['index_kind'] = index_kind[0].replace('\n', '').replace(' ', '').encode('utf8')
             item['index'] = index[0].encode('utf8')
             item['change_ratio'] = change_ratio[0].encode('utf8')
             item['date'] = date[0].encode('utf8')
-            print index_kind[0], index[0], change_ratio[0], date[0]
+            item['pic'] = pic[0]
+            print index_kind[0], index[0], change_ratio[0], date[0], pic[0]
 
             yield item
 
